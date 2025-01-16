@@ -30,13 +30,9 @@
 
   What is the position of the character that causes Santa to first enter the basement?"
   (->>
-    (reduce
-      (fn [full-list character]
-        (let [current-floor (peek full-list)
-              new-floor ((if (= character "(") inc dec) (or current-floor 0))]
-          (conj full-list new-floor)))
-      []
-      (get-input-list))
+    (get-input-list)
+    (map {\( 1 \) -1})
+    (reductions +)
     (take-while (complement neg?))
     count
     inc))
