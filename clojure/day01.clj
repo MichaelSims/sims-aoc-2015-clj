@@ -4,7 +4,7 @@
     [clojure.string :as str]))
 
 (defn get-input-list []
-  (str/split (slurp "inputs/input1.txt") #""))
+  (slurp "inputs/input1.txt"))
 
 (defn solve-part-one []
   "Santa is trying to deliver presents in a large apartment building, but he can't find the right floor - the
@@ -19,10 +19,8 @@
   [examples omitted]
 
   To what floor do the instructions take Santa?"
-  (reduce
-    (fn [current-floor character] ((if (= character "(") inc dec) current-floor))
-    0
-    (get-input-list)))
+  (let [directions (map {\( 1 \) -1} (get-input-list))]
+    (apply + directions)))
 
 (defn solve-part-two []
   "Now, given the same instructions, find the position of the first character that causes him to enter the basement
