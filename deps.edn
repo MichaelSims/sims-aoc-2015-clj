@@ -4,7 +4,8 @@
          org.clojure/data.int-map        {:mvn/version "1.3.0"}
          org.clojure/data.priority-map   {:mvn/version "1.2.0"}
          org.flatland/ordered            {:mvn/version "1.15.12"}
-         io.github.engelberg/better-cond {:git/tag "v2.1.5" :git/sha "156bc5f"}}
+         io.github.engelberg/better-cond {:git/tag "v2.1.5" :git/sha "156bc5f"}
+         philoskim/debux-stubs           {:mvn/version "0.9.1"}}
  :aliases
  {:profile  {:jvm-opts   ["-Djdk.attach.allowAttachSelf"]
              :extra-deps {criterium/criterium                      {:mvn/version "0.4.6"}
@@ -20,4 +21,6 @@
                           "-Dflowstorm.theme=dark"
                           "-Dflowstorm.fileEditorCommand=emacsclient -n +<<LINE>>:0 <<FILE>>"]}
   :spyscope {:extra-deps {clj-commons/spyscope {:mvn/version "0.1.48"}}
-             :main-opts  [-e "(require 'spyscope.core)"]}}}
+             :main-opts  [-e "(require 'spyscope.core)"]}
+  :debux    {:extra-deps {philoskim/debux {:mvn/version "0.9.1"}}
+             :main-opts  [-e "(use 'debux.core)"]}}}
